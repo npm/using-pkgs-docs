@@ -1,0 +1,24 @@
+{
+  "name": "using-pkgs-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gitbook serve",
+    "build": "gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npm/using-pkgs-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/npm/using-pkgs-docs/issues"
+  },
+  "homepage": "https://github.com/npm/using-pkgs-docs#readme",
+  "dependencies": {
+    "gitbook-cli": "^2.1.3"
+  }
+}
