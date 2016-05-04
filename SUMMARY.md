@@ -13,4 +13,4 @@
     * [devDependencies](package-json/types/devdependencies.md)
     * [optionalDependencies](package-json/types/optionaldependencies.md)
     * [peerDependencies](package-json/types/peerdependencies.md)
-  
+* [npm Shrinkwrap: Lock down your deps!](shrinkwrap/README.md) 
