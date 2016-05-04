@@ -55,7 +55,7 @@
         data-chapter-title="Uninstalling Local and Global Packages"
         data-filepath="working-with-packages/uninstalling.md"
         data-basepath=".."
-        data-revision="Wed May 04 2016 20:17:16 GMT+0000 (UTC)"
+        data-revision="Wed May 04 2016 22:41:25 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -112,6 +112,27 @@
                         Local Installation
                     </a>
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="working-with-packages/using-an-installed-package.html">
+            
+                
+                    <a href="../working-with-packages/using-an-installed-package.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        Using an Installed Package
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -346,7 +367,17 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="uninstalling-local-and-global-packages">Uninstalling Local and Global Packages</h1>
+<h2 id="uninstalling-local-packages">Uninstalling Local Packages</h2>
+<iframe src="https://www.youtube.com/embed/Z-BpYj6cSoQ" frameborder="0" allowfullscreen></iframe>
 
+<p>You can remove a package from your node_modules directory using <code>npm uninstall &lt;package&gt;</code>:</p>
+<pre><code>npm uninstall lodash
+</code></pre><p>To remove it from the dependencies in <code>package.json</code>, you will need to use the save flag:</p>
+<pre><code>npm uninstall --save lodash
+</code></pre><h2 id="uninstalling-global-packages">Uninstalling Global Packages</h2>
+<p>Global packages can be uninstalled with <code>npm uninstall -g &lt;package&gt;</code>:</p>
+<pre><code>npm uninstall -g jshint
+</code></pre>
                     
                     </section>
                 

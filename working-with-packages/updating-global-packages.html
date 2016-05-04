@@ -55,7 +55,7 @@
         data-chapter-title="Updating Global Packages"
         data-filepath="working-with-packages/updating-global-packages.md"
         data-basepath=".."
-        data-revision="Wed May 04 2016 20:17:16 GMT+0000 (UTC)"
+        data-revision="Wed May 04 2016 22:41:25 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -112,6 +112,27 @@
                         Local Installation
                     </a>
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="working-with-packages/using-an-installed-package.html">
+            
+                
+                    <a href="../working-with-packages/using-an-installed-package.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        Using an Installed Package
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -346,6 +367,10 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="updating-global-packages">Updating Global Packages</h1>
+<p>To update global packages, you can use <code>npm install -g &lt;package&gt;</code>:</p>
+<pre><code>npm install -g jshint
+</code></pre><p>To find out which packages need to be updated, you can use <code>npm outdated -g --depth=0</code>.</p>
+<p>To update all global packages, you can use  <code>npm update -g</code>. However, for npm versions less than 2.6.1, <a href="https://gist.github.com/othiym23/4ac31155da23962afd0e" target="_blank">this script</a> is recommended to update all outdated global packages.</p>
 
                     
                     </section>

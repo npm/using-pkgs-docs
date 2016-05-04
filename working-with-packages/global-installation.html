@@ -42,7 +42,7 @@
     <link rel="next" href="../working-with-packages/updating-local-packages.html" />
     
     
-    <link rel="prev" href="../working-with-packages/local-installation.html" />
+    <link rel="prev" href="../working-with-packages/using-an-installed-package.html" />
     
 
         
@@ -55,7 +55,7 @@
         data-chapter-title="Global Installation"
         data-filepath="working-with-packages/global-installation.md"
         data-basepath=".."
-        data-revision="Wed May 04 2016 20:17:16 GMT+0000 (UTC)"
+        data-revision="Wed May 04 2016 22:41:25 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -112,6 +112,27 @@
                         Local Installation
                     </a>
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="working-with-packages/using-an-installed-package.html">
+            
+                
+                    <a href="../working-with-packages/using-an-installed-package.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        Using an Installed Package
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -346,7 +367,13 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="global-installation">Global Installation</h1>
-
+<p>There are two ways to install npm packages: locally or globally. You choose which kind of installation to use based on how you want to use the package.</p>
+<p>If you want to use it as a command line tool, something like the grunt CLI, then you want to install it globally. On the other hand, if you want to depend on the package from your own module using something like Node&apos;s require, then you want to install locally.</p>
+<p>To download packages globally, you simply use the command <code>npm install -g &lt;package&gt;</code>, e.g.:</p>
+<pre><code>npm install -g jshint
+</code></pre><p>If you get an EACCES error, you <em>should</em> <a href="getting-started/fixing-npm-permissions">fix your permissions</a>. You could also try using <code>sudo</code>, but this <strong>should be avoided</strong>:</p>
+<pre><code>sudo npm install -g jshint
+</code></pre>
                     
                     </section>
                 
@@ -356,7 +383,7 @@
         </div>
 
         
-        <a href="../working-with-packages/local-installation.html" class="navigation navigation-prev " aria-label="Previous page: Local Installation"><i class="fa fa-angle-left"></i></a>
+        <a href="../working-with-packages/using-an-installed-package.html" class="navigation navigation-prev " aria-label="Previous page: Using an Installed Package"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../working-with-packages/updating-local-packages.html" class="navigation navigation-next " aria-label="Next page: Updating Local Packages"><i class="fa fa-angle-right"></i></a>

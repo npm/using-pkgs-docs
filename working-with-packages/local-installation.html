@@ -39,7 +39,7 @@
         
     
     
-    <link rel="next" href="../working-with-packages/global-installation.html" />
+    <link rel="next" href="../working-with-packages/using-an-installed-package.html" />
     
     
     <link rel="prev" href="../working-with-packages/index.html" />
@@ -55,7 +55,7 @@
         data-chapter-title="Local Installation"
         data-filepath="working-with-packages/local-installation.md"
         data-basepath=".."
-        data-revision="Wed May 04 2016 20:17:16 GMT+0000 (UTC)"
+        data-revision="Wed May 04 2016 22:41:25 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -112,6 +112,27 @@
                         Local Installation
                     </a>
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="working-with-packages/using-an-installed-package.html">
+            
+                
+                    <a href="../working-with-packages/using-an-installed-package.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.1.</b>
+                        
+                        Using an Installed Package
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -346,6 +367,35 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="local-installation">Local Installation</h1>
+<p>There are two ways to install npm packages: locally or globally. You choose which kind of
+installation to use based on how you want to use the package.</p>
+<p>If you want to depend on the package from your own module using something like Node.js&apos;
+<code>require</code>, then you want to install locally, which is <code>npm install</code>&apos;s default behavior.
+On the other hand, if you want to use it as a command line tool, something like the grunt CLI,
+then you want to <a href="getting-started/installing-npm-packages-globally">install it globally</a>.</p>
+<p>To learn more about the <code>install</code> command&apos;s behavior, check out the <a href="cli/install">CLI doc page</a>.</p>
+<h2 id="installing">Installing</h2>
+<p>A package can be downloaded with the command</p>
+<pre><code>&gt; npm install &lt;package_name&gt;
+</code></pre><p>This will create the <code>node_modules</code> directory in your current directory(if one doesn&apos;t exist yet),
+and will download the package to that directory.</p>
+<h4 id="test">Test:</h4>
+<p>To confirm that <code>npm install</code> worked correctly, check to see that a <code>node_modules</code>
+directory exists and that it contains a directory for the package(s) you installed.
+You can do this by run <code>ls node_modules</code> on Unix systems, e.g. &quot;OSX&quot;, &quot;Debian&quot;, or <code>dir node_modules</code>
+on Windows.</p>
+<h4 id="example">Example:</h4>
+<p>Install a package called <code>lodash</code>. Confirm that it ran successfully by listing the
+contents of the <code>node_modules</code> directory and seeing a directory called <code>lodash</code>.</p>
+<pre><code>&gt; npm install lodash
+&gt; ls node_modules               # use `dir` for Windows
+
+#=&gt; lodash
+</code></pre><h2 id="which-version-of-the-package-is-installed">Which version of the package is installed?</h2>
+<p>If there is no <code>package.json</code> file in the local directory, the latest version of the
+package is installed.</p>
+<p>If there is <code>package.json</code> file, the latest version satisfying the <a href="getting-started/semantic-versioning">semver rule</a>
+declared in <code>package.json</code> for that package (if there is any) is installed.</p>
 
                     
                     </section>
@@ -359,7 +409,7 @@
         <a href="../working-with-packages/index.html" class="navigation navigation-prev " aria-label="Previous page: Working with Packages"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../working-with-packages/global-installation.html" class="navigation navigation-next " aria-label="Next page: Global Installation"><i class="fa fa-angle-right"></i></a>
+        <a href="../working-with-packages/using-an-installed-package.html" class="navigation navigation-next " aria-label="Next page: Using an Installed Package"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
