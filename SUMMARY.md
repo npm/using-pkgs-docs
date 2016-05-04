@@ -2,6 +2,7 @@
 
 * [Working with Packages](working-with-packages/README.md)
   * [Local Installation](working-with-packages/local-installation.md)
+    * [Using an Installed Package](working-with-packages/using-an-installed-package.md)
   * [Global Installation](working-with-packages/global-installation.md)
   * [Updating Local Packages](working-with-packages/updating-local-packages.md)
   * [Updating Global Packages](working-with-packages/updating-global-packages.md)
