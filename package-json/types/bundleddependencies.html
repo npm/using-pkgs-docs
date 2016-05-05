@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Dependencies | Introduction</title>
+        <title>bundledDependencies | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -39,10 +39,10 @@
         
     
     
-    <link rel="next" href="../../package-json/types/devdependencies.html" />
+    <link rel="next" href="../../package-json/types/optionaldependencies.html" />
     
     
-    <link rel="prev" href="../../package-json/types-of-dependencies.html" />
+    <link rel="prev" href="../../package-json/types/devdependencies.html" />
     
 
         
@@ -51,9 +51,9 @@
         
         
     <div class="book"
-        data-level="2.3.1"
-        data-chapter-title="Dependencies"
-        data-filepath="package-json/types/dependencies.md"
+        data-level="2.3.3"
+        data-chapter-title="bundledDependencies"
+        data-filepath="package-json/types/bundleddependencies.md"
         data-basepath="../.."
         data-revision="Thu May 05 2016 20:52:30 GMT+0000 (UTC)"
         data-innerlanguage="">
@@ -263,7 +263,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.3.1" data-path="package-json/types/dependencies.html">
+        <li class="chapter " data-level="2.3.1" data-path="package-json/types/dependencies.html">
             
                 
                     <a href="../../package-json/types/dependencies.html">
@@ -293,7 +293,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.3" data-path="package-json/types/bundleddependencies.html">
+        <li class="chapter active" data-level="2.3.3" data-path="package-json/types/bundleddependencies.html">
             
                 
                     <a href="../../package-json/types/bundleddependencies.html">
@@ -396,7 +396,27 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="dependencies">Dependencies</h1>
+                        <h1 id="bundleddependencies">bundledDependencies</h1>
+<p>This defines an array of package names that will be bundled when publishing
+the package.</p>
+<p>In cases where you need to preserve npm packages locally or have them
+available through a single file download, you can bundle the packages in a
+tarball file by specifying the package names in the <code>bundledDependencies</code>
+array and executing <code>npm pack</code>.</p>
+<p>For example:</p>
+<p>If we define a package.json like this:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;awesome-web-framework&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;bundledDependencies&quot;: [
+    &apos;renderized&apos;, &apos;super-streams&apos;
+  ]
+}
+</code></pre><p>we can obtain <code>awesome-web-framework-1.0.0.tgz</code> file by running <code>npm pack</code>.
+This file contains the dependencies <code>renderized</code> and <code>super-streams</code> which
+can be installed in a new project by executing <code>npm install
+awesome-web-framework-1.0.0.tgz</code>.</p>
+<p>If this is spelled <code>&quot;bundleDependencies&quot;</code>, then that is also honored.</p>
 
                     
                     </section>
@@ -407,10 +427,10 @@
         </div>
 
         
-        <a href="../../package-json/types-of-dependencies.html" class="navigation navigation-prev " aria-label="Previous page: Types of Dependencies"><i class="fa fa-angle-left"></i></a>
+        <a href="../../package-json/types/devdependencies.html" class="navigation navigation-prev " aria-label="Previous page: devDependencies"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../package-json/types/devdependencies.html" class="navigation navigation-next " aria-label="Next page: devDependencies"><i class="fa fa-angle-right"></i></a>
+        <a href="../../package-json/types/optionaldependencies.html" class="navigation navigation-next " aria-label="Next page: optionalDependencies"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

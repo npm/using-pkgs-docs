@@ -51,11 +51,11 @@
         
         
     <div class="book"
-        data-level="2.2.4"
+        data-level="2.3.5"
         data-chapter-title="peerDependencies"
         data-filepath="package-json/types/peerdependencies.md"
         data-basepath="../.."
-        data-revision="Wed May 04 2016 22:41:33 GMT+0000 (UTC)"
+        data-revision="Thu May 05 2016 20:52:30 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -217,14 +217,29 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1" data-path="package-json/the-package-json-file.html">
+        <li class="chapter " data-level="2.1" data-path="package-json/using-a-packagejson.html">
+            
+                
+                    <a href="../../package-json/using-a-packagejson.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Using a package.json
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="package-json/the-package-json-file.html">
             
                 
                     <a href="../../package-json/the-package-json-file.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.1.</b>
+                            <b>2.2.</b>
                         
                         The package.json File
                     </a>
@@ -232,14 +247,14 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="package-json/types-of-dependencies.html">
+        <li class="chapter " data-level="2.3" data-path="package-json/types-of-dependencies.html">
             
                 
                     <a href="../../package-json/types-of-dependencies.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.2.</b>
+                            <b>2.3.</b>
                         
                         Types of Dependencies
                     </a>
@@ -248,14 +263,14 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.2.1" data-path="package-json/types/dependencies.html">
+        <li class="chapter " data-level="2.3.1" data-path="package-json/types/dependencies.html">
             
                 
                     <a href="../../package-json/types/dependencies.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.2.1.</b>
+                            <b>2.3.1.</b>
                         
                         Dependencies
                     </a>
@@ -263,14 +278,14 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.2" data-path="package-json/types/devdependencies.html">
+        <li class="chapter " data-level="2.3.2" data-path="package-json/types/devdependencies.html">
             
                 
                     <a href="../../package-json/types/devdependencies.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.2.2.</b>
+                            <b>2.3.2.</b>
                         
                         devDependencies
                     </a>
@@ -278,14 +293,29 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.3" data-path="package-json/types/optionaldependencies.html">
+        <li class="chapter " data-level="2.3.3" data-path="package-json/types/bundleddependencies.html">
+            
+                
+                    <a href="../../package-json/types/bundleddependencies.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.3.</b>
+                        
+                        bundledDependencies
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="package-json/types/optionaldependencies.html">
             
                 
                     <a href="../../package-json/types/optionaldependencies.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.2.3.</b>
+                            <b>2.3.4.</b>
                         
                         optionalDependencies
                     </a>
@@ -293,14 +323,14 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2.4" data-path="package-json/types/peerdependencies.html">
+        <li class="chapter active" data-level="2.3.5" data-path="package-json/types/peerdependencies.html">
             
                 
                     <a href="../../package-json/types/peerdependencies.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.2.4.</b>
+                            <b>2.3.5.</b>
                         
                         peerDependencies
                     </a>
@@ -367,6 +397,36 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="peerdependencies">peerDependencies</h1>
+<p>In some cases, you want to express the compatibility of your package with a
+host tool or library, while not necessarily doing a <code>require</code> of this host.
+This is usually referred to as a <em>plugin</em>. Notably, your module may be exposing
+a specific interface, expected and specified by the host documentation.</p>
+<p>For example:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;tea-latte&quot;,
+  &quot;version&quot;: &quot;1.3.5&quot;,
+  &quot;peerDependencies&quot;: {
+    &quot;tea&quot;: &quot;2.x&quot;
+  }
+}
+</code></pre><p>This ensures your package <code>tea-latte</code> can be installed <em>along</em> with the second
+major version of the host package <code>tea</code> only. <code>npm install tea-latte</code> could
+possibly yield the following dependency graph:</p>
+<pre><code>&#x251C;&#x2500;&#x2500; tea-latte@1.3.5
+&#x2514;&#x2500;&#x2500; tea@2.2.0
+</code></pre><p><strong>NOTE: npm versions 1 and 2 will automatically install <code>peerDependencies</code> if
+they are not explicitly depended upon higher in the dependency tree. In the
+next major version of npm (npm@3), this will no longer be the case. You will
+receive a warning that the peerDependency is not installed instead.</strong> The
+behavior in npms 1 &amp; 2 was frequently confusing and could easily put you into
+dependency hell, a situation that npm is designed to avoid as much as possible.</p>
+<p>Trying to install another plugin with a conflicting requirement will cause an
+error. For this reason, make sure your plugin requirement is as broad as
+possible, and not to lock it down to specific patch versions.</p>
+<p>Assuming the host complies with <a href="http://semver.org/" target="_blank">semver</a>, only changes in
+the host package&apos;s major version will break your plugin. Thus, if you&apos;ve worked
+with every 1.x version of the host package, use <code>&quot;^1.0&quot;</code> or <code>&quot;1.x&quot;</code> to express
+this. If you depend on features introduced in 1.5.2, use <code>&quot;&gt;= 1.5.2 &lt; 2&quot;</code>.</p>
 
                     
                     </section>

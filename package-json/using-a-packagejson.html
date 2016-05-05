@@ -39,10 +39,10 @@
         
     
     
-    <link rel="next" href="../package-json/using-a-packagejson.html" />
+    <link rel="next" href="../package-json/the-package-json-file.html" />
     
     
-    <link rel="prev" href="../working-with-packages/uninstalling.html" />
+    <link rel="prev" href="../package-json/index.html" />
     
 
         
@@ -51,9 +51,9 @@
         
         
     <div class="book"
-        data-level="2"
+        data-level="2.1"
         data-chapter-title="Using a package.json"
-        data-filepath="package-json/README.md"
+        data-filepath="package-json/using-a-packagejson.md"
         data-basepath=".."
         data-revision="Thu May 05 2016 20:52:30 GMT+0000 (UTC)"
         data-innerlanguage="">
@@ -201,7 +201,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2" data-path="package-json/index.html">
+        <li class="chapter " data-level="2" data-path="package-json/index.html">
             
                 
                     <a href="../package-json/index.html">
@@ -217,7 +217,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1" data-path="package-json/using-a-packagejson.html">
+        <li class="chapter active" data-level="2.1" data-path="package-json/using-a-packagejson.html">
             
                 
                     <a href="../package-json/using-a-packagejson.html">
@@ -397,6 +397,132 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="using-a-packagejson">Using a package.json</h1>
+<p>The best way to manage locally installed npm packages is to create a
+<code>package.json</code> file. </p>
+<p>A <code>package.json</code> file affords you a lot of great things:</p>
+<ol>
+<li>It serves as documentation for what packages your project depends on.</li>
+<li>It allows you to specify the versions of a package that your project
+can use using <a href="getting-started/semantic-versioning">semantic versioning rules</a>.</li>
+<li>Makes your build reproducable which means that its <em>way</em> easier
+to share with other developers.</li>
+</ol>
+<h2 id="requirements">Requirements</h2>
+<p>As a bare minimum, a <code>package.json</code> must have:</p>
+<ul>
+<li><code>&quot;name&quot;</code><ul>
+<li>all lowercase</li>
+<li>one word, no spaces</li>
+<li>dashes and underscores allowed</li>
+</ul>
+</li>
+<li><code>&quot;version&quot;</code></li>
+</ul>
+<p>For example:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;my-awesome-package&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;
+}
+</code></pre><h2 id="creating-a-packagejson">Creating a <code>package.json</code></h2>
+<p>To create a <code>package.json</code> run:</p>
+<pre><code>&gt; npm init
+</code></pre><p>This will initate a command line questionnaire that will conclude with the 
+creation of a <code>package.json</code> in the directory you initiated the command.</p>
+<h3 id="the-yes-init-flag">The <code>--yes</code> init flag</h3>
+<p>The extended CLI Q&amp;A experience is not for everyone, and often if you are
+comfortable with using a <code>package.json</code> you&apos;d like a more expedited
+experience. </p>
+<p>You can get a default <code>package.json</code> by running <code>npm init</code> with the <code>--yes</code>
+or <code>-y</code> flag:</p>
+<pre><code>&gt; npm init --yes
+</code></pre><p>This will ask you only one question, <code>author</code>. Otherwise it will fill in default
+values: </p>
+<pre><code>&gt; npm init --yes
+Wrote to /home/ag_dubs/my_package/package.json:
+
+{
+  &quot;name&quot;: &quot;my_package&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;ag_dubs&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;repository&quot;: {
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;https://github.com/ashleygwilliams/my_package.git&quot;
+  },
+  &quot;bugs&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ashleygwilliams/my_package/issues&quot;
+  },
+  &quot;homepage&quot;: &quot;https://github.com/ashleygwilliams/my_package&quot;
+}
+</code></pre><ul>
+<li><code>name</code>: defaults to author name unless in a <code>git</code> directory, in which case it
+  will be the name of the repository</li>
+<li><code>version</code>: always <code>1.0.0</code></li>
+<li><code>main</code>: always <code>index.js</code></li>
+<li><code>scripts</code>: by default creates a empty <code>test</code> script</li>
+<li><code>keywords</code>: empty</li>
+<li><code>author</code>: whatever you provided the CLI</li>
+<li><code>license</code>: <a href="https://opensource.org/licenses/ISC" target="_blank"><code>ISC</code></a></li>
+<li><code>repository</code>: will pull in info from the current directory, if present</li>
+<li><code>bugs</code>: will pull in info from the current directory, if present</li>
+<li><code>homepage</code>: will pull in info from the current directory, if present</li>
+</ul>
+<p>You can also set several config options for the init command. Some useful ones:</p>
+<pre><code>&gt; npm set init.author.email &quot;wombat@npmjs.com&quot;
+&gt; npm set init.author.name &quot;ag_dubs&quot;
+&gt; npm set init.license &quot;MIT&quot;
+</code></pre><h4 id="note">NOTE:</h4>
+<p>If there is no description field in the package.json, npm uses the first line of the README.md or README instead. The description helps people find your package on npm search, so it&apos;s definitely useful to make a custom description in the package.json to make your package more discoverable.</p>
+<h2 id="specifying-packages">Specifying Packages</h2>
+<p>To specify the packages your project depends on, you need to 
+list the packages you&apos;d like to use in your <code>package.json</code> file. There are
+2 types of packages you can list:</p>
+<ul>
+<li><code>&quot;dependencies&quot;</code>: these packages are required by your application in production</li>
+<li><code>&quot;devDependencies&quot;</code>: these packages are only needed for development and testing</li>
+</ul>
+<h3 id="manually-editing-your-packagejson">Manually editing your <code>package.json</code></h3>
+<p>You can manually edit your <code>package.json</code>. You&apos;ll need to create an attribute
+in the package object called <code>dependencies</code> that points to an object. This object
+will hold attributes named after the packages you&apos;d like to use, that point to a 
+<a href="getting-started/semantic-versioning">semver</a> expression that specifies what versions of that project are 
+compatible with your project.</p>
+<p>If you have dependencies you only need to use during local development, you will
+follow the same instructions as above but in an attribute called <code>devDependencies</code>.</p>
+<p>For example: The project below uses any version of the package <code>my_dep</code> that matches
+major version 1 in production, and requires any version of the package <code>my_test_framework</code>
+that matches major version 3, but only for development:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;my_package&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;dependencies&quot;: {
+    &quot;my_dep&quot;: &quot;^1.0.0&quot;
+  },
+  &quot;devDependencies&quot; : {
+    &quot;my_test_framework&quot;: &quot;^3.1.0&quot;
+  }
+}
+</code></pre><h3 id="the-save-and-savedev-install-flags">The <code>--save</code> and <code>--save-dev</code> install flags</h3>
+<p>The easier (and more awesome) way to add dependencies to your <code>package.json</code> is to do
+so from the command line, flagging the <code>npm install</code> command with either <code>--save</code> or
+<code>--save-dev</code>, depending on how you&apos;d like to use that dependency.</p>
+<p>To add an entry to your <code>package.json</code>&apos;s <code>dependencies</code>:</p>
+<pre><code>npm install &lt;package_name&gt; --save
+</code></pre><p>To add an entry to your <code>package.json</code>&apos;s <code>devDependencies</code>:</p>
+<pre><code>npm install &lt;package_name&gt; --save-dev
+</code></pre><h2 id="managing-dependency-versions">Managing dependency versions</h2>
+<p>npm uses Semantic Versioning, or, as we often refer to it, SemVer, to manage versions
+and ranges of versions of packages.</p>
+<p>If you have a <code>package.json</code> file in your directory and you run
+<code>npm install</code>, then npm will look at the dependencies that are listed in
+that file and download the latest versions satisfying <a href="getting-started/semantic-versioning">semver rules</a>
+for all of those.</p>
+<p>To learn more about semantic versioning, check out our <a href="getting-started/semantic-versioning">Getting Started &quot;Semver&quot; page</a>.</p>
 
                     
                     </section>
@@ -407,10 +533,10 @@
         </div>
 
         
-        <a href="../working-with-packages/uninstalling.html" class="navigation navigation-prev " aria-label="Previous page: Uninstalling Local and Global Packages"><i class="fa fa-angle-left"></i></a>
+        <a href="../package-json/index.html" class="navigation navigation-prev " aria-label="Previous page: Using a package.json"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../package-json/using-a-packagejson.html" class="navigation navigation-next " aria-label="Next page: Using a package.json"><i class="fa fa-angle-right"></i></a>
+        <a href="../package-json/the-package-json-file.html" class="navigation navigation-next " aria-label="Next page: The package.json File"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
