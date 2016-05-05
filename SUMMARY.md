@@ -13,6 +13,7 @@
   * [Types of Dependencies](package-json/types-of-dependencies.md)
     * [Dependencies](package-json/types/dependencies.md)
     * [devDependencies](package-json/types/devdependencies.md)
+    * [bundledDependencies](package-json/types/bundleddependencies.md)
     * [optionalDependencies](package-json/types/optionaldependencies.md)
     * [peerDependencies](package-json/types/peerdependencies.md)
 * [npm Shrinkwrap: Lock down your deps!](shrinkwrap/README.md) 
