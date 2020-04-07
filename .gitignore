@@ -2,3 +2,4 @@ node_modules
 _book
 tmp
 styles/components.css
+.DS_Store
