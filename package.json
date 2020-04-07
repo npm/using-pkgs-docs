@@ -45,6 +45,6 @@
     "npm-expansions": "^2.2.3"
   },
   "devDependencies": {
-    "bootstrap": "3.3.5"
+    "bootstrap": "3.4.1"
   }
 }
